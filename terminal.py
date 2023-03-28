@@ -7,6 +7,9 @@ import spotipy.util as util
 from json.decoder import JSONDecodeError
 from json.decoder import JSONDecodeError
 from collections import Counter
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Get username from terminal
 username = sys.argv[1]
@@ -51,7 +54,3 @@ sp = spotipy.Spotify(auth=token)
 ranges = [('short_term', '4 Weeks'), ('medium_term', '6 Months'), ('long_term', 'Several Years')]
 for rng in ranges:
     get_top_genres(rng)
-
-
-
-
