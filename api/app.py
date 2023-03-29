@@ -9,9 +9,9 @@ from json.decoder import JSONDecodeError
 from flask import Flask, session, request, redirect
 from flask_session import Session
 from collections import Counter
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-load_dotenv()
+load_dotenv(find_dotenv())
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
@@ -116,5 +116,4 @@ def get_top_artists(time_range):
 # ranges = [('short_term', '4 Weeks'), ('medium_term', '6 Months'), ('long_term', 'Several Years')]
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', threaded=True, port=int(os.environ.get("PORT",
-                                                                   os.environ.get("SPOTIPY_REDIRECT_URI", 8080).split(":")[-1])))
+    app.run()
